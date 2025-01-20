@@ -8,7 +8,6 @@ import {
   CardHeader,
   Heading,
 } from "@chakra-ui/react";
-import SidebarWithHeader from "./components/Sidebar";
 
 export default function Page() {
   return (

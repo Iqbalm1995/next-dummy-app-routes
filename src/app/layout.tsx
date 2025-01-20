@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Merriweather } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { fonts } from "./fonts";
+import { Box } from "@chakra-ui/react";
+import SidebarWithHeader from "./components/Sidebar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Load Merriweather Font
+const merriweather = Merriweather({
+  weight: ["400", "700"], // Specify weights as needed
   subsets: ["latin"],
 });
 
@@ -21,13 +19,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" className={fonts.rubik.variable}>
-      <body>
-        <Providers>{children}</Providers>
+    <html lang="en">
+      <body className={merriweather.className}>
+        <Providers>
+          <Box
+            bgColor={"gray.100"}
+            color={"black"}
+            minHeight={"100vh"}
+            w={"full"}
+          >
+            <SidebarWithHeader>{children}</SidebarWithHeader>
+          </Box>
+        </Providers>
       </body>
     </html>
   );

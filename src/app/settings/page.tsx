@@ -8,14 +8,13 @@ import {
   CardHeader,
   Heading,
 } from "@chakra-ui/react";
-import SidebarWithHeader from "./components/Sidebar";
 
-export default function Page() {
+export default function SettingsPage() {
   return (
     <Card>
       <CardHeader>
         <Heading as="h3" size="lg">
-          Home Page
+          Setting Page
         </Heading>
       </CardHeader>
       <CardBody>
